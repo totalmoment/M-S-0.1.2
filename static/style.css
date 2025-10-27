@@ -1,0 +1,46 @@
+.inpt1{
+    background-color: black;
+    
+    color:rgb(255, 0, 0);
+    width: 45px ;
+}
+
+.p1{
+    color: red;
+}
+.redtext1{
+    color: red;
+    background-color: rgb(20, 20, 20);
+}
+
+.keyblack {
+    background: linear-gradient(to right, #460000, #000000);
+    color: white;
+    width: 100px;
+    height: 20px;
+    font-size: 0.5em;
+    text-align: right;
+    
+}
+.keyblack:hover {
+    filter: brightness(0.9); 
+}
+
+.keywhite {
+    background: linear-gradient(to right, #460000, #ffffff);
+    color: black;
+    width: 100px;
+    height: 20px;
+    font-size: 0.5em;
+    text-align: right;
+    
+}
+.keywhite:hover {
+    filter: brightness(0.9); 
+}
+.note-cell {
+    width: 25px;
+    height: 20px;
+    background-color: black;
+    border: 0.5px solid rgb(26, 26, 26);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+{%load static %} 
+<html lang="en"> 
+<header class="redtext1">
+    
+    <head > 
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+    </head> 
+<h4>  
+     {% if request.user.is_authenticated %} Welcome to MSequencer, <a href="{%url 'profile' request.user.id%}">User</a>!
+    <a href="{%url 'sequencer'%}">Save </a> <a href="{%url 'logout'%}"> Logout </a>   
+    {%else%}  Welcome to MSequencer! 
+    If you want to save your song please <a href="{%url 'register'%}">register</a> or <a href="{%url 'login'%}">login</a>
+    {%endif%}
+</h4>
+    <header class="sticky1">
+        <body class="wrb">
+    
+                <td><p class="p1">
+    BPM: <input type="number" class="inpt1">
+    </p></td>
+
+        </body>
+
+         <body class="pats">
+
+        </body>
+
+    </header>
+
+    <table class="td-bd"> 
+        <tr>  
+            
+        </tr> 
+        {% for octave in range %} 
+            {% for note in notes %} 
+                <tr> 
+                    <td> 
+                        <button class="{%if '#' in note %}keyblack{%else%}keywhite{%endif%}"> 
+                            {{ note }}{{ octave }} 
+                        </button> 
+                    </td> 
+                     
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                    <td class="note-cell"> </td> 
+                </tr> 
+            {% endfor %} 
+        {% endfor %} 
+    </table> 
+</header>
+</html>
