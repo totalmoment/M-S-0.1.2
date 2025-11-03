@@ -1,3 +1,14 @@
+<DOCTYPE html> 
+{%load static %} 
+<html lang="en">  
+
+
+ <head > 
+        <link rel="stylesheet" href="{% static 'profile.css' %}"> 
+  </head> 
+<body>
+<h2 class="mid">User Profile</h2>
+
 {%for track in page_obj%}
 <p>{{track.title}}</p>
 {%endfor%}
@@ -12,3 +23,6 @@
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
 </nav>
+
+</body>
+</html>

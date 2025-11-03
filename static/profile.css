@@ -1,0 +1,20 @@
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/OldEnglishFive.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+    margin: 0;
+    color: rgb(208, 0, 0);
+    background-color: rgb(20, 20, 20);
+    
+}
+.mid{
+    font-family: 'MyFont', sans-serif;
+    background-color: black;
+    text-align: center;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}

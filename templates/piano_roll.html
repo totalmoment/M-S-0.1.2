@@ -1,31 +1,26 @@
 <!DOCTYPE html> 
 {%load static %} 
 <html lang="en"> 
-<header class="redtext1">
     
     <head > 
         <link rel="stylesheet" href="{% static 'style.css' %}"> 
     </head> 
+    <body>
+    <header class="sticky1">
 <h4>  
-     {% if request.user.is_authenticated %} Welcome to MSequencer, <a href="{%url 'profile' request.user.id%}">User</a>!
+     {% if request.user.is_authenticated %} Welcome to MSequencer, <a href="{%url 'profile' request.user.id%}">{{request.user.username}}</a>!
     <a href="{%url 'sequencer'%}">Save </a> <a href="{%url 'logout'%}"> Logout </a>   
     {%else%}  Welcome to MSequencer! 
     If you want to save your song please <a href="{%url 'register'%}">register</a> or <a href="{%url 'login'%}">login</a>
     {%endif%}
 </h4>
-    <header class="sticky1">
-        <body class="wrb">
+    
+        <p class="wrb">
     
                 <td><p class="p1">
-    BPM: <input type="number" class="inpt1">
+    BPM: <input type="number" class="inpt1" value="120" min="20" max="300" step="1" id="bpmInput">
     </p></td>
-
-        </body>
-
-         <body class="pats">
-
-        </body>
-
+    </p>
     </header>
 
     <table class="td-bd"> 
@@ -61,5 +56,5 @@
             {% endfor %} 
         {% endfor %} 
     </table> 
-</header>
+</body>
 </html>
