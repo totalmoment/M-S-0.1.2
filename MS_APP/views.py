@@ -16,6 +16,7 @@ def SequencesListView(request):
         pass
 def ProfileView(request, id):
     if request.method == 'GET':
+        request.user
         track_list = Track.objects.filter(author = User.objects.get(id=id)).order_by('-created_at')
         paginator = Paginator(track_list, 10)  
         page_number = request.GET.get('page')

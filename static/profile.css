@@ -5,12 +5,17 @@
   font-weight: normal;
   font-style: normal;
 }
-
 body{
     margin: 0;
     color: rgb(208, 0, 0);
     background-color: rgb(20, 20, 20);
-    
+}
+a {
+    color: rgb(200, 0, 0);
+}
+a:hover {
+    color: rgb(200, 0, 0);
+
 }
 .mid{
     font-family: 'MyFont', sans-serif;

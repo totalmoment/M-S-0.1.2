@@ -1,60 +1,53 @@
 <!DOCTYPE html> 
-{%load static %} 
-<html lang="en"> 
-    
-    <head > 
-        <link rel="stylesheet" href="{% static 'style.css' %}"> 
-    </head> 
-    <body>
-    <header class="sticky1">
-<h4>  
-     {% if request.user.is_authenticated %} Welcome to MSequencer, <a href="{%url 'profile' request.user.id%}">{{request.user.username}}</a>!
-    <a href="{%url 'sequencer'%}">Save </a> <a href="{%url 'logout'%}"> Logout </a>   
-    {%else%}  Welcome to MSequencer! 
-    If you want to save your song please <a href="{%url 'register'%}">register</a> or <a href="{%url 'login'%}">login</a>
-    {%endif%}
-</h4>
-    
-        <p class="wrb">
-    
-                <td><p class="p1">
-    BPM: <input type="number" class="inpt1" value="120" min="20" max="300" step="1" id="bpmInput">
-    </p></td>
-    </p>
-    </header>
 
-    <table class="td-bd"> 
-        <tr>  
+{%load static %} 
+
+<html lang="en"> 
+    <head> 
+        <link rel="stylesheet" href="{% static 'style.css' %}"> 
+        <title>My website</title>
+    </head> 
+
+    <body>
+        <header class="sticky1">
+            <h4>  
+                {% if request.user.is_authenticated %} 
+                    Welcome to MSequencer, <a href="{%url 'profile' request.user.id%}">{{request.user.username}}</a>! <a href="{%url 'sequencer'%}">Save </a> <a href="{%url 'logout'%}"> Logout </a>   
+                {%else%}  
+                    Welcome to MSequencer! If you want to save your song please <a href="{%url 'register'%}">register</a> or <a href="{%url 'login'%}">login</a>
+                {%endif%}
+            </h4>
+
+            <div class="upper-panel">
+                <p>
+                    BPM: <input type="number" class="inpt1" value="120" min="20" max="300" step="1" id="bpmInput">
+                    <img src="{% static 'sitemages/play.png' %}" alt="Play" id="playBtn" class="btn-img">
+                </p>
+            </div>
             
-        </tr> 
-        {% for octave in range %} 
-            {% for note in notes %} 
-                <tr> 
-                    <td> 
-                        <button class="{%if '#' in note %}keyblack{%else%}keywhite{%endif%}"> 
-                            {{ note }}{{ octave }} 
-                        </button> 
-                    </td> 
-                     
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                    <td class="note-cell"> </td> 
-                </tr> 
-            {% endfor %} 
-        {% endfor %} 
-    </table> 
-</body>
+            <input type="hidden" value="{{ csrf_token }}" id="csrfToken">
+            <button id="save-track" >Save track</button>
+
+        </header>
+
+        <div class="scroll-container">
+            <table class="td-bd"> 
+                {% for octave in range %} 
+                    {% for note in notes %} 
+                        <tr> 
+                            <td> 
+                                <button class="{%if '#' in note %}keyblack{%else%}keywhite{%endif%}"> 
+                                    {{ note }}{{ octave }} 
+                                </button> 
+                            </td> 
+                            <td class="note-cell"> </td> 
+                        </tr> 
+                    {% endfor %} 
+                {% endfor %} 
+            </table> 
+        </div>
+
+        <script src="{% static 'scripts/createCells.js' %}"></script>
+        <script src="{% static 'scripts/addNoteToDB.js' %}"></script>
+    </body>
 </html>
