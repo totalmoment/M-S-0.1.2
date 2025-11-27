@@ -8,20 +8,28 @@
   </head> 
 <body>
 <h2 class="mid">User Profile</h2>
+<div class="profile_info"><p><img src="{% static 'avatars/avatar_stability.png' %}" alt="User" class="user-img" ></p>
+<div><p>{{ user.username }}</p>
+<p>Joined: {{ user.date_joined }}</p></div></div>
+<h4 class="mid">Tracks uploaded: {{ tracks_count }}</h4>
+<div class="track_list">{% for track in page_obj %}
+<img src="{% static 'sitemages/track_info.png' %}" alt="Track Info icon" class="track-info-icon">
+{%endfor%}</div>
 
-{%for track in page_obj%}
-<p>{{track.title}}</p>
-{%endfor%}
 
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">{{&&}}</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
+<nav aria-label="navv">
+    <ul class="paginaton">
+        <li class="page_item">
+            <a class="page-link {% if not page_obj.has_previous %} disabled {% endif %}" href="{% if page_obj.has_previous %} {% url 'profile' id %}?page={{ page_obj.previous_page_number }} {% endif %}">
+                Previos
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link {% if not page_obj.has_next %} disabled {% endif %}" href="{% if page_obj.has_next %} {% url 'profile' id %}?page={{ page_obj.next_page_number }} {% endif %}">
+                Next
+            </a>
+        </li>
+    </ul>
 </nav>
 
 </body>

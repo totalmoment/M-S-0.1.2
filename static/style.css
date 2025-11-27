@@ -1,8 +1,14 @@
+
+
 .btn-img {
     width: 24px;
     height: 24px;
     vertical-align: middle;
     cursor: pointer;
+}
+.btn-img :hover {
+    filter: brightness(0.8);
+
 }
 
 button {

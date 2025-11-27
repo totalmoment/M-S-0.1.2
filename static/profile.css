@@ -1,14 +1,25 @@
-
+.left{
+    float: left;
+    margin: 10px;
+    font-family: 'MyFont', sans-serif;
+}
 @font-face {
   font-family: 'MyFont';
   src: url('fonts/OldEnglishFive.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+
+
+}
+.user-img{
+    width: 140px;
+    height: 140px;
 }
 body{
     margin: 0;
     color: rgb(208, 0, 0);
     background-color: rgb(20, 20, 20);
+
 }
 a {
     color: rgb(200, 0, 0);
@@ -22,4 +33,40 @@ a:hover {
     background-color: black;
     text-align: center;
     border-bottom: 3px solid rgb(255, 255, 255);
+}
+.page-link{
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    padding: 10px;
+    
+}
+.disabled{
+    pointer-events: none;
+    color: grey;
+    
+}
+.trpr{
+    text-align: center;
+    border: 3px solid rgb(57, 0, 0);
+    border-width: 2px;
+    background-color: black;
+    margin: 0px;
+    padding: 5px;
+}
+.profile_info{
+    font-family: 'MyFont', sans-serif;
+    display: flex;
+    flex-direction: row;
+
+}
+.track_list{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-self: center
+}
+.track-info-icon {
+    width: 20px;
+    height: 20px;
+
 }
