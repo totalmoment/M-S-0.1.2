@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+{%load static %}
+<html lang="en">
+    <head >
+            <link rel="stylesheet" href="{% static 'editinfo.css' %}">
+    </head>
+    <body>
+
+
+
+        <h2 class="mid">Edit Track Info</h2>
+        <div class="edit_track_form">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="submit_button">Save Changes</button>
+            </form>
+        </div>
+
+        
+
+    </body>
+</html>

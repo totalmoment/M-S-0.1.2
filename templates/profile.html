@@ -7,14 +7,27 @@
         <link rel="stylesheet" href="{% static 'profile.css' %}"> 
   </head> 
 <body>
-<h2 class="mid">User Profile</h2>
+<a href="/" class="back-but1"> << Back </a>
+<h2 class="mid"> User Profile</h2>
 <div class="profile_info"><p><img src="{% static 'avatars/avatar_stability.png' %}" alt="User" class="user-img" ></p>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<input type="file" name="avatar" >
+<button type="submit" class="upload_button">Upload Avatar</button>
+</form>
 <div><p>{{ user.username }}</p>
 <p>Joined: {{ user.date_joined }}</p></div></div>
 <h4 class="mid">Tracks uploaded: {{ tracks_count }}</h4>
-<div class="track_list">{% for track in page_obj %}
-<img src="{% static 'sitemages/track_info.png' %}" alt="Track Info icon" class="track-info-icon">
-{%endfor%}</div>
+<div class="track_list">
+{% for track in page_obj %}
+    <div class="track-row">
+        <p>{{ track.title }}</p>
+        <a href="{% url 'track_info' track.id %}"><img src="{% static 'sitemages/track_info.png' %}" alt="Track Info icon" class="track-info-icon"></button></a>
+        <a href="{% url 'edit_track' track.id %}"><img src="{% static 'sitemages/edit_track.png' %}" alt="Track Edit icon" class="track-edit-icon"></a>
+        <a href="{% url 'sequences' track.id %}"><img src="{% static 'sitemages/piano_roll.png' %}" alt="Piano Roll" class="track-piano-icon"></a>
+    </div>
+{%endfor%}
+</div>
 
 
 <nav aria-label="navv">
