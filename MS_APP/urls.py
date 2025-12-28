@@ -9,4 +9,5 @@ urlpatterns = [
     path('edit_track/<int:id>/', views.EditTrackView, name='edit_track'),
     path('info/<int:id>/', views.InfoView, name='track_info'),
     path('pagination/', views.PaginationView, name='pagination'),
+    path('save-track/', views.SaveTrackView, name='save_track'),
 ]

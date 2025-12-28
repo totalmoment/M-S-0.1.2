@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .models import Track, Comment
 from django.core.paginator import Paginator
 from django.contrib.auth.models import User
+from json import loads
+from MS_APP.midifilecompr import MidiWorker
+from mido import MidiFile, MidiTrack, Message, MetaMessage, bpm2tempo
+from json import *
 
 # Create your views here.
 def SequencerView(request):
@@ -72,3 +76,14 @@ def InfoView(request, id):
         content = request.POST.get('content')
         Comment.objects.create(track=track, author=request.user, content=content)
         return redirect('track_info', id=id)
+
+def SaveTrackView(request):
+    if request.method == 'POST':
+        data = loads(request.body)
+        midi_worker = MidiWorker('output.mid')
+        midi_worker.build_track(
+            data['notes'],
+            bpm=data.get('bpm', 120)
+        )
+        midi_worker.save()
+        return HttpResponse({'status': 'success'})

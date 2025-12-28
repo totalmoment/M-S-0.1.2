@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const td = document.createElement('td');
             td.className = 'note-cell';
             row.appendChild(td);
-            td.addEventListener('click', () => {
-                td.className = "note-cell active-note";
-            })
         });
     }
 
